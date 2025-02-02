@@ -1,0 +1,13 @@
+.imageGallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  gap: 8px;
+}
+
+.galleryItem {
+  width: calc((100% - 24px * 3) / 4);
+  height: 360px;
+}
