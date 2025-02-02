@@ -1,10 +1,13 @@
 import axios from 'axios';
 
-const YOUR_ACCESS_KEY = '-WO-zOtCPTXRH7NeI_g-zs1gEZBytPATvKuRQnbUcdE';
-
 export const fetchImages = async (query, page = 0) => {
+  console.log(import.meta.env.VITE_API_KEY);
+  console.log(import.meta.env.VERCEL_API_KEY);
+  console.log(import.meta.env.REACT_API_KEY);
   const response = await axios.get(
-    `https://api.unsplash.com/search/photos?query=${query}&&page=${page}&client_id=${YOUR_ACCESS_KEY}`
+    `https://api.unsplash.com/search/photos?query=${query}&&page=${page}&client_id=${
+      import.meta.env.VITE_API_KEY
+    }`
   );
 
   return response.data;

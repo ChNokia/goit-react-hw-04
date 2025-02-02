@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Toaster, toast } from 'react-hot-toast';
 
 import SearchBar from './components/SearchBar/SearchBar';
 import ImageGallery from './components/ImageGallery/ImageGallery';
@@ -11,8 +10,6 @@ import ImageModal from './components/ImageModal/ImageModal';
 import { fetchImages } from './services/api';
 
 import './App.css';
-
-const notify = (message = 'Empty query!') => toast.error(message);
 
 function App() {
   const [query, setQuery] = useState('');
@@ -54,10 +51,6 @@ function App() {
   }, [query, page]);
 
   const handleNewQuery = newQuery => {
-    if (!newQuery) {
-      notify();
-      return;
-    }
     setImagesList([]);
     setPage(0);
     setQuery(newQuery);
@@ -82,7 +75,6 @@ function App() {
 
   return (
     <div className="container">
-      <Toaster />
       <SearchBar onSubmit={handleNewQuery} />
       {imagesList.length > 0 && (
         <ImageGallery images={imagesList} onSelectedItem={selectImage} />

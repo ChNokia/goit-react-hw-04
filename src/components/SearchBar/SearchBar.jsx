@@ -1,16 +1,27 @@
 import { useState } from 'react';
 import { GoSearch } from 'react-icons/go';
+import { Toaster, toast } from 'react-hot-toast';
+
 import styles from './SearchBar.module.css';
+
+const notify = (message = 'Empty query!') => toast.error(message);
 
 const SearchBar = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
 
   const handleSubmit = event => {
     event.preventDefault();
-    onSubmit(event.target.elements.search.value.trim());
+
+    const newQuery = event.target.elements.search.value.trim();
+    if (!newQuery) {
+      notify();
+      return;
+    }
+    onSubmit(newQuery);
   };
   return (
     <header className={styles.searchHeader}>
+      <Toaster />
       <form className={styles.searchField} onSubmit={handleSubmit}>
         <input
           className={styles.searchInput}
