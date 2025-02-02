@@ -17,7 +17,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isLoadMore, setIsLoadMore] = useState(false);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState({
     description: '',
@@ -27,6 +27,7 @@ function App() {
 
   useEffect(() => {
     const handleSearchQuery = async () => {
+      console.log('handleSearchQuery', query);
       if (!query) {
         return;
       }
@@ -53,6 +54,7 @@ function App() {
   const handleNewQuery = newQuery => {
     setImagesList([]);
     setPage(0);
+    setQuery('');
     setQuery(newQuery);
   };
 

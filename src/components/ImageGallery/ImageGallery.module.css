@@ -10,4 +10,15 @@
 .galleryItem {
   width: calc((100% - 24px * 3) / 4);
   height: 360px;
+  transition: scale 250ms ease;
+  border-radius: 8px;
+  border: 1px solid hsla(0, 0%, 50%, 0.2);
+  overflow: hidden;
+  transition: border 250ms ease scale 250ms ease;
+}
+
+.galleryItem:hover,
+.galleryItem:focus {
+  scale: 1.02;
+  border: 2px solid hsla(0, 0%, 50%, 0.2);
 }

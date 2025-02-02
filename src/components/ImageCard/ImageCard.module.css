@@ -9,7 +9,6 @@
 
 .imageCard {
   object-fit: cover;
-  border: 1px solid #808080;
   height: 100%;
   width: auto;
 }
@@ -23,7 +22,7 @@
   padding: 4px 20px;
   position: absolute;
   bottom: 0;
-  border: 1px solid #808080;
+  border-top: 1px solid hsla(0, 0%, 50%, 0.2);
   background-color: whitesmoke;
 }
 
